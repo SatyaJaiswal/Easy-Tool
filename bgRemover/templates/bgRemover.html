@@ -1,0 +1,250 @@
+{% load static %}
+{% include 'Home/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Remover</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, #fdfdfd, #ffffff);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Card Container */
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+            max-width: 480px;
+            width: 100%;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .container h4 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* File Input Styling */
+        .upload-label {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .upload-label:hover {
+            background: #0056b3;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .success-btn {
+            background-color: #28a745;
+        }
+
+        .success-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: relative;
+            width: 100%;
+            height: 8px;
+            background: #f1f1f1;
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-bar .progress {
+            height: 100%;
+            width: 0%;
+            background-color: #007bff;
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Result Section */
+        .result {
+            margin-top: 30px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .result img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tooltip for Info */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Remove Background from Images</h4>
+        <p>Upload your image, and our tool will remove its background in seconds.</p>
+
+        <!-- File Upload -->
+        <label for="imageUpload" class="upload-label">Upload Image</label>
+        <input type="file" id="imageUpload" accept="image/*" onchange="showRemoveButton()">
+
+        <!-- Remove Button -->
+        <button id="removeBtn" class="button" onclick="uploadImage()" style="display: none;">Remove Background</button>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar" id="progressBar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result" id="result">
+            <img id="outputImage" alt="Processed Image">
+            <a id="downloadBtn" class="button success-btn" download="processed_image.png">Download Image</a>
+        </div>
+    </div>
+
+    <script>
+        function showRemoveButton() {
+            document.getElementById("removeBtn").style.display = "inline-block";
+        }
+
+        async function uploadImage() {
+            const fileInput = document.getElementById("imageUpload");
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select an image file.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("image", file);
+
+            const progressBar = document.getElementById("progressBar");
+            const progress = document.getElementById("progress");
+            const result = document.getElementById("result");
+
+            // Show Progress Bar
+            progressBar.style.display = "block";
+            progress.style.width = "0%";
+
+            try {
+                const response = await fetch("/bgRemover/remove-background/", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (data.status === "success") {
+                    const outputImage = document.getElementById("outputImage");
+                    const downloadBtn = document.getElementById("downloadBtn");
+
+                    // Display Output
+                    outputImage.src = `data:image/png;base64,${data.image}`;
+                    outputImage.style.display = "block";
+                    downloadBtn.href = outputImage.src;
+                    downloadBtn.style.display = "inline-block";
+                    result.style.display = "flex";
+
+                    // Hide Progress Bar
+                    progress.style.width = "100%";
+                } else {
+                    alert("Error: " + data.message);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
