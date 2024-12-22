@@ -79,10 +79,27 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'Easy-Tool',  # The name of your MongoDB database
+        'CLIENT': {
+            'host': 'mongodb://localhost:27017/',
+        }
     }
 }
+
+
+from pymongo import MongoClient
+import sys
+
+# Test MongoDB connection
+try:
+    client = MongoClient('mongodb://localhost:27017/Easy-Tool')
+    client.server_info()  # Trigger an exception if connection fails
+    print("Database connected successfully!")
+except Exception as e:
+    print("Error connecting to database:", e)
+    sys.exit(1)
+
 
 
 # Password validation
