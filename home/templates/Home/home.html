@@ -8,20 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- bootstrap icon cdn  -->
-    <!-- Option 1: Include in HTML -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Home Page</title>
 </head>
 <style>
-    /* Global styles */
-    body {
+       /* Global styles */
+       body {
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
-        overflow-x: hidden;
     }
 
     .container-fluid {
@@ -36,46 +33,71 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 0 10px;
-        /* Add some padding for mobile view */
-    }
-
-    .title {
-        position: relative;
-        text-align: center;
-        font-weight: bold;
-        padding: 2rem;
-        background: url("{% static 'images/title-img.png' %}") no-repeat center;
-        background-size: 40%; /* Slightly larger image */
-        animation: moveBg 5s infinite alternate; /* Animation for moving the background */
+        padding: 0 10px; /* Add some padding for mobile view */
     }
 
     .title h1 {
         font-size: 4.5em;
         color: rgb(0, 0, 0);
+        margin: 10px 0;
+    }
+    .overview {
+        display: flex;
+        justify-content: center; /* Horizontal alignment */
+        align-items: center;    /* Vertical alignment */
+        text-align: center;     /* Text alignment inside the div */
+        height: 50vh; 
+        background: #F6CA5A;         /* Full viewport height for proper centering */
         margin: 0;
-        z-index: 1;
-        position: relative;
+      }
+    
+    .heading h1{
+        text-align: center;
+        font-family: 'Inria Serif';
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        position: flex;
+    }
+    .heading span{
+        font-size: 72px;
+    }
+    .heading p{
+        text-align: center;
+        font-family: 'Inria Serif';
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        position: flex;
+        font-size: 22px;
+    }
+    .products{
+        display: flex;
+        justify-content: center; /* Horizontal alignment */
+        align-items: center;    /* Vertical alignment */
+        text-align: center;     /* Text alignment inside the div */
+        height: 50vh; 
+        background: #6d6d6d;         /* Full viewport height for proper centering */
+        overflow-x: hidden;
+    }
+    .products-title{
+        color: white;
+        font-family: 'Inria Serif';
+    }
+    .Api{
+        background: white;
     }
 
-    .title::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.7); /* Semi-transparent overlay */
-        z-index: 0; /* Behind the text */
-    }
-
-    /* Keyframes for animation */
-    @keyframes moveBg {
-        0% {
-            background-position: left center;
+    /* Responsive title for smaller screens */
+    @media (max-width: 768px) {
+        .title h1 {
+            font-size: 3em;
         }
-        100% {
-            background-position: right center;
+    }
+
+    @media (max-width: 480px) {
+        .title h1 {
+            font-size: 2em;
         }
     }
 
@@ -138,8 +160,8 @@
         gap: 20px;
     }
 
-    /* View More Button Styles */
-    .get-more {
+     /* View More Button Styles */
+     .get-more {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -167,116 +189,6 @@
         height: 1px;
         background-color: #000;
     }
-
-    .overview {
-        display: flex;
-        justify-content: center;
-        /* Horizontal alignment */
-        align-items: center;
-        /* Vertical alignment */
-        text-align: center;
-        /* Text alignment inside the div */
-        height: 50vh;
-        background: #F6CA5A;
-        /* Full viewport height for proper centering */
-        margin: 0;
-    }
-
-    .heading h1 {
-        text-align: center;
-        font-family: 'Inria Serif';
-        justify-content: center;
-        justify-items: center;
-        align-items: center;
-        position: flex;
-    }
-
-    .heading span {
-        font-size: 72px;
-    }
-
-    .heading p {
-        text-align: center;
-        font-family: 'Inria Serif';
-        justify-content: center;
-        justify-items: center;
-        align-items: center;
-        position: flex;
-        font-size: 22px;
-    }
-
-    .products {
-        display: flex;
-        background: #505050;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 0;
-        padding: 10px;
-        margin-bottom: 40px;
-    }
-
-    .products-title {
-        width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .products-title h1 {
-        font-size: 2rem;
-        color: #fff;
-        text-transform: uppercase;
-    }
-
-    .Api {
-        flex: 1 1 300px;
-        /* Ensures equal size for all boxes */
-        max-width: 300px;
-        /* Optional: restrict the maximum width */
-        border: 2px solid #e0e0e0;
-        border-radius: 10px;
-        padding: 20px;
-        background-color: #f9f9f9;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-        margin: 0 15px;
-        /* Left and right gap for each box */
-    }
-
-    .Api:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .api-img {
-        font-size: 3rem;
-        color: #000000;
-        margin-bottom: 15px;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-        color: #444;
-        margin: 10px 0;
-    }
-
-    p {
-        font-size: 1rem;
-        color: #666;
-        line-height: 1.5;
-    }
-
-    @media screen and (max-width: 768px) {
-        .products {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .Api {
-            flex: none;
-            width: 90%;
-        }
-    }
-
-
 
     /* Responsive tweaks for smaller screens */
     @media (max-width: 768px) {
@@ -444,11 +356,10 @@
     </div>
 
     <div class="overview">
-        <div class="heading">
-            <h1>All your favorite tools on <span>1</span> platform</h1>
-            <p>Every tool you need to use PDFs, converion video to audio. <br> All are 100% FREE and easy to use! with
-                just a few clicks.</p>
-        </div>
+            <div class="heading">
+                <h1>All your favorite tools on <span>1</span> platform</h1>
+                <p>Every tool you need to use PDFs, converion video to audio. <br> All are 100% FREE and easy to use! with just a few clicks.</p>
+            </div>
     </div>
 
     <div class="products row text-center">
@@ -480,9 +391,9 @@
 
 
 
-    <div class="footer">
-        {% include 'Home/footer.html' %}
-    </div>
+        <div class="footer">
+            {% include 'Home/footer.html' %}
+        </div>
 </body>
 
 <!-- <script>
@@ -507,10 +418,10 @@
     });
 </script> -->
 
-<script>
+{% comment %} <script>
     // Handle Star Rating Click
     document.querySelectorAll('.star').forEach(star => {
-        star.addEventListener('click', function () {
+        star.addEventListener('click', function() {
             const rating = this.getAttribute('data-value');
             document.getElementById('rating').value = rating;
 
@@ -526,15 +437,27 @@
             }
         });
     });
-</script>
+</script> {% endcomment %}
 
-<!-- save rating in database  -->
-<script>
+ <!-- save rating in database  -->
+ {% comment %} <script>
     document.querySelectorAll('.star').forEach(star => {
         star.addEventListener('click', function () {
             document.getElementById('rating').value = this.dataset.value;
         });
     });
-</script>
+</script> {% endcomment %}
 
+{% if messages %}
+<script type="text/javascript">
+    {% for message in messages %}
+        alert("{{ message }}");  <!-- पॉप-अप में मैसेज दिखाएं -->
+    {% endfor %}
+    
+    // 2 सेकंड के बाद रीडायरेक्ट करें
+    setTimeout(function(){
+        window.location.href = "{% url 'home' %}";
+    }, 2000); // 2000ms = 2 सेकंड
+</script>
+{% endif %}
 </html>
