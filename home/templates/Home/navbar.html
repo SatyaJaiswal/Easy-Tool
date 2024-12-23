@@ -15,14 +15,14 @@
             width: 100%;
             z-index: 1000;
         }
-        .logo a{
-          text-decoration: none;
-          color: rgb(243, 196, 9) ;
-          font-family: fantasy;
-          font-size: 1.5rem;
+        .logo a {
+            text-decoration: none;
+            color: rgb(243, 196, 9);
+            font-family: fantasy;
+            font-size: 1.5rem;
         }
-        .logo a span{
-          color: white;
+        .logo a span {
+            color: white;
         }
 
         .navbar-toggler {
@@ -40,6 +40,14 @@
             color: white;
         }
 
+        .navbar-nav a:hover {
+            color: rgb(243, 196, 9);
+        }
+
+        .navbar-collapse {
+            text-align: center;
+        }
+
         /* Responsiveness */
         @media (max-width: 768px) { /* For tablets and smaller screens */
             .navbar-nav {
@@ -55,7 +63,7 @@
                 font-size: 1.25rem;
             }
 
-            .navbar-brand span {
+            .logo a {
                 font-size: 1.25rem;
             }
         }
@@ -65,15 +73,26 @@
                 font-size: 1rem;
             }
 
-            .navbar-brand span {
+            .logo a {
                 font-size: 1rem;
             }
 
             .navbar-nav li a {
                 font-size: 0.9rem;
             }
+
+            .navbar-toggler-icon {
+                width: 30px;
+                height: 30px;
+            }
+
             .navbar-nav {
                 margin: 0 auto;
+                text-align: center;
+            }
+
+            .logo h2 {
+                font-size: 1.2rem;
             }
         }
     </style>
