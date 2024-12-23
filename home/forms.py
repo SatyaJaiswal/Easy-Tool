@@ -4,7 +4,4 @@ from .models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['name', 'email', 'review', 'suggestions', 'rating']
-        widgets = {
-            'rating': forms.HiddenInput(),  # Hidden rating field
-        }
+        fields = ['name', 'email','message','rating','tool']
