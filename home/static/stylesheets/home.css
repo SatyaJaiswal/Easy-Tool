@@ -1,0 +1,414 @@
+/* Global styles */
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Ensure all elements include padding/border in width/height */
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.home {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px; /* Add some padding for mobile view */
+    background-position: center;
+    width: 100%; /* Ensure home section takes full width */
+}
+
+/* Title text */
+.title h1 {
+    font-size: 4.5em;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    z-index: 1;
+    position: relative;
+    word-wrap: break-word; /* Ensure text breaks properly in smaller screens */
+}
+
+/* Semi-transparent overlay */
+/* Semi-transparent overlay */
+.title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 0;
+}
+
+@keyframes moveBg {
+    0% {
+        background-position: left center;
+    }
+    100% {
+        background-position: right center;
+    }
+}
+
+/* Responsive Adjustments */
+
+/* For screens 1200px and larger */
+@media (max-width: 1200px) {
+    .title h1 {
+        font-size: 3.5em;
+    }
+}
+
+/* For tablets (screen width 992px to 1200px) */
+@media (max-width: 992px) {
+    .title h1 {
+        font-size: 3em;
+    }
+    .title {
+        background-size: 50%;
+    }
+}
+
+/* For smaller tablets (screen width 768px to 992px) */
+@media (max-width: 768px) {
+    .title h1 {
+        font-size: 2.5em;
+    }
+    .title {
+        background-size: 55%;
+        padding: 1.5rem;
+    }
+}
+
+/* For mobile phones (screen width below 768px) */
+@media (max-width: 576px) {
+    .title h1 {
+        font-size: 2em;
+    }
+    .title {
+        background-size: 65%; /* Make the background image smaller */
+        padding: 1rem;
+    }
+}
+
+/* For extra small mobile phones (screen width below 480px) */
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 1.6em;
+    }
+    .title {
+        background-size: 75%; /* Make background even smaller for tiny screens */
+        padding: 0.8rem;
+    }
+}
+
+/* section 2  */
+/* Card styles */
+.card {
+    width: 100%;
+    padding: 10px;
+    max-width: 18rem;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.icon img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.card-title {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
+
+.btn button {
+    background-color: rgb(130, 4, 92);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn button:hover {
+    background-color: #a1037e;
+}
+
+/* Responsive grid for cards */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+/* overview responsive desgin  */
+/* Base Styles */
+.overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Horizontal alignment */
+    align-items: center; /* Vertical alignment */
+    text-align: center; /* Text alignment inside the div */
+    height: 50vh; /* Full viewport height for proper centering */
+    background: #F6CA5A; /* Background color */
+    margin: 0;
+    padding: 10px; /* Add padding for smaller screens */
+}
+
+.heading h1 {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Inria Serif';
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    position: flex;
+}
+
+.heading span {
+    font-size: 72px;
+}
+
+.heading p {
+    text-align: center;
+    font-family: 'Inria Serif';
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    position: flex;
+    font-size: 22px;
+}
+
+/* For screens 1200px and larger */
+@media (max-width: 1200px) {
+    .overview .heading h1 {
+        font-size: 2.8em; /* Adjust title size */
+    }
+    .overview .heading p {
+        font-size: 1.1em; /* Adjust paragraph size */
+    }
+}
+
+/* For tablets (screen width 992px to 1200px) */
+@media (max-width: 992px) {
+    .overview .heading h1 {
+        font-size: 2.5em; /* Reduce title size */
+    }
+    .overview .heading p {
+        font-size: 1em; /* Adjust paragraph size */
+    }
+}
+
+/* For smaller tablets (screen width 768px to 992px) */
+@media (max-width: 768px) {
+    .overview .heading h1 {
+        font-size: 2.2em; /* Further reduce title size */
+    }
+    .overview .heading p {
+        font-size: 0.9em; /* Adjust paragraph size */
+    }
+}
+
+/* For mobile phones (screen width below 768px) */
+@media (max-width: 576px) {
+    .overview {
+        height: 40vh; /* Reduce height for smaller screens */
+    }
+    .overview .heading h1 {
+        font-size: 1.8em; /* Smaller title size */
+    }
+    .overview .heading p {
+        font-size: 0.8em; /* Smaller paragraph size */
+    }
+}
+
+/* For extra small mobile phones (screen width below 480px) */
+@media (max-width: 480px) {
+    .overview {
+        height: 35vh; /* Reduce height even more for tiny screens */
+    }
+    .overview .heading h1 {
+        font-size: 1.6em; /* Very small title size */
+    }
+    .overview .heading p {
+        font-size: 0.75em; /* Even smaller paragraph size */
+    }
+}
+
+/* Base styles for the products section */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 10px;
+    margin-bottom: 40px;
+    background: #505050; /* Background color */
+}
+
+.products-title {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.products-title h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Individual product box */
+.Api {
+    flex: 1 1 300px; /* Equal size for all boxes */
+    max-width: 300px; /* Restrict max width */
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 15px; /* Left and right gap for each box */
+    text-align: center;
+}
+
+.Api:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon styles */
+.api-img {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+/* Heading inside each product */
+h3 {
+    font-size: 1.5rem;
+    color: #444;
+    margin: 10px 0;
+}
+
+/* Paragraph inside each product */
+p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive styles for small devices and mobile */
+@media (max-width: 1024px) {
+    /* For tablets and below */
+    .products-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .Api {
+        flex: 1 1 45%; /* Adjust each box width */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For tablets and smaller screens */
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Api {
+        flex: none;
+        width:90%; /* Full width on smaller screens */
+        margin: 10px ;
+    }
+
+    .products-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .api-img {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* For smaller mobile phones */
+    .products-title h1 {
+        font-size: 1.3rem;
+    }
+
+    .api-img {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For extra small mobile phones */
+    .products-title h1 {
+        font-size: 1.2rem;
+    }
+
+    .api-img {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+}
+
