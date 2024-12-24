@@ -5,196 +5,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'stylesheets/home.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- bootstrap icon cdn  -->
-     <!-- Option 1: Include in HTML -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Home Page</title>
 </head>
 <style>
-       /* Global styles */
-       body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .container-fluid {
-        padding: 0;
-    }
-
-    .home {
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 50vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .title {
+        position: relative;
         text-align: center;
-        padding: 0 10px; /* Add some padding for mobile view */
-    }
-
-    .title h1 {
-        font-size: 4.5em;
-        color: rgb(0, 0, 0);
-        margin: 10px 0;
-    }
-    .overview {
-        display: flex;
-        justify-content: center; /* Horizontal alignment */
-        align-items: center;    /* Vertical alignment */
-        text-align: center;     /* Text alignment inside the div */
-        height: 50vh; 
-        background: #F6CA5A;         /* Full viewport height for proper centering */
-        margin: 0;
-      }
-    
-    .heading h1{
-        text-align: center;
-        font-family: 'Inria Serif';
-        justify-content: center;
-        justify-items: center;
-        align-items: center;
-        position: flex;
-    }
-    .heading span{
-        font-size: 72px;
-    }
-    .heading p{
-        text-align: center;
-        font-family: 'Inria Serif';
-        justify-content: center;
-        justify-items: center;
-        align-items: center;
-        position: flex;
-        font-size: 22px;
-    }
-    .products{
-        display: flex;
-        justify-content: center; /* Horizontal alignment */
-        align-items: center;    /* Vertical alignment */
-        text-align: center;     /* Text alignment inside the div */
-        height: 50vh; 
-        background: #6d6d6d;         /* Full viewport height for proper centering */
-        overflow-x: hidden;
-    }
-    .products-title{
-        color: white;
-        font-family: 'Inria Serif';
-    }
-    .Api{
-        background: white;
-    }
-
-    /* Responsive title for smaller screens */
-    @media (max-width: 768px) {
-        .title h1 {
-            font-size: 3em;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .title h1 {
-            font-size: 2em;
-        }
-    }
-
-    /* Card styles */
-    .card {
+        font-weight: bold;
+        padding: 2rem;
+        background: url("{% static 'images/title-img.png' %}") no-repeat center;
+        background-size: 20%;
+        animation: moveBg 5s infinite alternate;
         width: 100%;
-        padding: 10px;
-        max-width: 18rem;
-        margin: 0 auto 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border: none;
-        border-radius: 8px;
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .card:hover {
-        transform: scale(1.05);
-    }
-
-    .card-body {
-        padding: 1rem;
-    }
-
-    .icon img {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 10px;
-        display: block;
-    }
-
-    .card-title {
-        font-size: 1.25em;
-        margin-bottom: 10px;
-    }
-
-    .card-text {
-        font-size: 0.95em;
-        margin-bottom: 15px;
-    }
-
-    .btn button {
-        background-color: rgb(130, 4, 92);
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 20px;
-        font-size: 1em;
-        cursor: pointer;
-    }
-
-    .btn button:hover {
-        background-color: #a1037e;
-    }
-
-    /* Responsive grid for cards */
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-     /* View More Button Styles */
-     .get-more {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 20px 0;
-        gap: 10px;
-    }
-
-    .get-more button {
-        padding: 10px 20px;
-        background-color: #ffa200;
-        color: black;
-        border: none;
-        border-radius: 4px;
-        font-size: 1em;
-        cursor: pointer;
-    }
-
-    .get-more button:hover {
-        background-color: rgb(130, 4, 92);
-        color: white;
-    }
-
-    .line {
-        flex: 1;
-        height: 1px;
-        background-color: #000;
-    }
-
-    /* Responsive tweaks for smaller screens */
-    @media (max-width: 768px) {
-        .row {
-            flex-direction: column;
-        }
+        max-width: 100%; /* Ensure the title spans full width */
+        margin: 0 auto; /* Center title horizontally */
     }
 </style>
 
@@ -214,8 +47,7 @@
                             <img src="{% static 'images/bg.png' %}" alt="">
                         </div>
                         <h5 class="card-title">BG Remover</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <p class="card-text">Easily remove backgrounds from images with our advanced BG Remover tool. Achieve high-quality, transparent backgrounds in just a few clicks for all your editing needs.</p>
                         <div class="btn">
                             <a href="{% url 'bgRemover' %}"><button>Click here</button></a>
                         </div>
@@ -229,8 +61,7 @@
                             <img src="{% static 'images/w-p.jpg' %}" alt="">
                         </div>
                         <h5 class="card-title">MS word to PDF</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <p class="card-text">Convert your MS Word documents into professional PDFs effortlessly with our secure and fast converter tool. Preserve formatting while converting to shareable, universally accessible PDFs.</p>
                         <div class="btn">
                             <a href="{% url 'msWord_pdf' %}"><button>Click here</button></a>
                         </div>
@@ -244,8 +75,7 @@
                             <img src="{% static 'images/ppt-pdf.png' %}" alt="">
                         </div>
                         <h5 class="card-title">PPT to pdf</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <p class="card-text">Transform your PowerPoint presentations into PDF files with ease. Our PPT to PDF tool ensures that your slides look perfect on any device, with no loss of formatting.</p>
                         <div class="btn">
                             <a href="#"><button>Click here</button></a>
                         </div>
@@ -262,8 +92,7 @@
                             <img src="{% static 'images/y-to-mp3.png' %}" alt="">
                         </div>
                         <h5 class="card-title">Youtube video to mp3</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <p class="card-text">Convert YouTube videos to high-quality MP3 audio files instantly. Enjoy your favorite music and podcasts offline, wherever you go, with our fast YouTube to MP3 converter.</p>
                         <div class="btn">
                             <a href="#"><button>Click here</button></a>
                         </div>
@@ -277,8 +106,7 @@
                             <img src="{% static 'images/insta.png' %}" alt="">
                         </div>
                         <h5 class="card-title">Insta reel to mp3</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <p class="card-text">Download Instagram Reels as MP3 audio files quickly and efficiently. Save your favorite sounds and music from Insta Reels to enjoy offline at any time.</p>
                         <div class="btn">
                             <a href="#"><button>Click here</button></a>
                         </div>
@@ -292,8 +120,7 @@
                             <img src="{% static 'images/url.png' %}" alt="">
                         </div>
                         <h5 class="card-title">URL Shortner</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <p class="card-text">Shorten your URLs with ease using our reliable URL Shortener tool. Create clean, shareable links that are perfect for social media, emails, and any other platform.</p>
                         <div class="btn">
                             <a href="#"><button>Click here</button></a>
                         </div>
@@ -301,65 +128,14 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="row" id="row-3" style="display: none;">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <div class="icon">
-                            <img src="{% static 'images/tool1.png' %}" alt="">
-                        </div>
-                        <h5 class="card-title">New Tool 1</h5>
-                        <p class="card-text">This is an additional card to display when View More is clicked.</p>
-                        <div class="btn">
-                            <a href="#"><button>Click here</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <div class="icon">
-                            <img src="{% static 'images/tool2.png' %}" alt="">
-                        </div>
-                        <h5 class="card-title">New Tool 2</h5>
-                        <p class="card-text">This is another additional card to display when View More is clicked.</p>
-                        <div class="btn">
-                            <a href="#"><button>Click here</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <div class="icon">
-                            <img src="{% static 'images/tool3.png' %}" alt="">
-                        </div>
-                        <h5 class="card-title">New Tool 3</h5>
-                        <p class="card-text">One more card that shows when View More is clicked.</p>
-                        <div class="btn">
-                            <a href="#"><button>Click here</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
-        <!-- <div class="get-more">
-            <div class="line"></div>
-            <button id="viewMoreBtn">View more</button>
-            <div class="line"></div>
-        </div> -->
     </div>
 
     <div class="overview">
-            <div class="heading">
-                <h1>All your favorite tools on <span>1</span> platform</h1>
-                <p>Every tool you need to use PDFs, converion video to audio. <br> All are 100% FREE and easy to use! with just a few clicks.</p>
-            </div>
+        <div class="heading">
+            <h1>All your favorite tools on <span>1</span> platform</h1>
+            <p>Every tool you need to use PDFs, converion video to audio. <br> All are 100% FREE and easy to use! with
+                just a few clicks.</p>
+        </div>
     </div>
 
     <div class="products row text-center">
@@ -391,37 +167,15 @@
 
 
 
-        <div class="footer">
-            {% include 'Home/footer.html' %}
-        </div>
+    <div class="footer">
+        {% include 'Home/footer.html' %}
+    </div>
 </body>
 
-<!-- <script>
-    document.getElementById("viewMoreBtn").addEventListener("click", function () {
-        // Show the hidden row containing new cards smoothly
-        const hiddenRow = document.getElementById("row-3");
-        hiddenRow.style.display = "flex";
-
-        // Adding smooth fade-in effect
-        setTimeout(function () {
-            hiddenRow.style.opacity = 1;
-        }, 10);
-
-        // Hide the "View More" button
-        this.style.display = "none";
-
-        // Hide the horizontal line
-        const lines = document.querySelectorAll(".line");
-        lines.forEach(line => {
-            line.style.display = "none";
-        });
-    });
-</script> -->
-
-{% comment %} <script>
+<script>
     // Handle Star Rating Click
     document.querySelectorAll('.star').forEach(star => {
-        star.addEventListener('click', function() {
+        star.addEventListener('click', function () {
             const rating = this.getAttribute('data-value');
             document.getElementById('rating').value = rating;
 
@@ -437,27 +191,15 @@
             }
         });
     });
-</script> {% endcomment %}
+</script>
 
- <!-- save rating in database  -->
- {% comment %} <script>
+<!-- save rating in database  -->
+<script>
     document.querySelectorAll('.star').forEach(star => {
         star.addEventListener('click', function () {
             document.getElementById('rating').value = this.dataset.value;
         });
     });
-</script> {% endcomment %}
-
-{% if messages %}
-<script type="text/javascript">
-    {% for message in messages %}
-        alert("{{ message }}");  <!-- पॉप-अप में मैसेज दिखाएं -->
-    {% endfor %}
-    
-    // 2 सेकंड के बाद रीडायरेक्ट करें
-    setTimeout(function(){
-        window.location.href = "{% url 'home' %}";
-    }, 2000); // 2000ms = 2 सेकंड
 </script>
-{% endif %}
+
 </html>

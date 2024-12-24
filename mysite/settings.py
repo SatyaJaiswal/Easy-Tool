@@ -76,16 +76,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Easy_Tool',  # The name of your MySQL database
-        'USER': 'root',  # Replace with your MySQL username
-        'PASSWORD': 'jitendrakumarsingh123',  # Replace with your MySQL password
-        'HOST': 'localhost',  # Or the host of your MySQL database
-        'PORT': '3306',  # Default MySQL port
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'Easy_Tool',  # The name of your MySQL database
+#         'USER': 'root',  # Replace with your MySQL username
+#         'PASSWORD': 'jitendrakumarsingh123',  # Replace with your MySQL password
+#         'HOST': 'localhost',  # Or the host of your MySQL database
+#         'PORT': '3306',  # Default MySQL port
+#     }
+# }
 
 
 # Password validation

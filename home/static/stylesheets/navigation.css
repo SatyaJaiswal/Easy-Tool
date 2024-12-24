@@ -1,0 +1,141 @@
+/* General navbar styles */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 9rem; /* Big icon size */
+}
+.star-rating input[type="radio"] {
+    display: none; /* Hide the radio buttons */
+}
+.star-rating label {
+    color: #aaa; /* Default color: Gray */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s;
+}
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffc107; /* Selected color: Yellow */
+}
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107; /* Hover color: Yellow */
+    transform: scale(1.2); /* Slightly increase size on hover */
+}
+.navbar {
+    background-color: rgb(130, 4, 92);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.logo a {
+    text-decoration: none;
+    color: rgb(243, 196, 9);
+    font-family: fantasy;
+    font-size: 1.5rem;
+}
+.logo a span {
+    color: white;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Nav links styles */
+.navbar-nav a {
+    font-size: 1.2rem;
+    color: white;
+}
+.navbar a:hover{
+    color: goldenrod;
+}
+
+/* Dropdown menu styles */
+.account-section {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute; 
+    top: 100%;
+    left: -80%;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.account-section:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu li:hover {
+    background-color:rgb(130, 4, 92);
+}
+.dropdown-menu li a:hover {
+    color: white;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .navbar-nav {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .navbar-nav li {
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-nav li a {
+        font-size: 0.9rem;
+    }
+
+    .navbar-nav {
+        margin: 0 auto;
+    }
+}
+
+/* Star Rating Styles */
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.star-rating input:checked ~ label {
+    color: gold;
+}
+
+.star-rating input:checked + label {
+    color: gold;
+}
