@@ -23,7 +23,7 @@
 }
 .navbar {
     background-color: rgb(130, 4, 92);
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;

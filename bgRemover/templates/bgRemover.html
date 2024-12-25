@@ -1,5 +1,4 @@
 {% load static %}
-{% include 'Home/navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,22 +18,22 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to bottom right, #fdfdfd, #ffffff);
             color: #333;
-            display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
         }
 
         /* Card Container */
-        .container {
+        .upload{
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
             max-width: 480px;
-            width: 100%;
+            width: 50%;
             padding: 40px 30px;
             text-align: center;
+            justify-content: center;
+            justify-items: center;
+            margin-top: 100px;
         }
 
         .container h4 {
@@ -168,7 +167,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    {% include 'Home/navbar.html' %}
+    <div class="upload container-fluid">
         <h4>Remove Background from Images</h4>
         <p>Upload your image, and our tool will remove its background in seconds.</p>
 

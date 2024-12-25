@@ -27,6 +27,7 @@ body {
     padding: 0 10px; /* Add some padding for mobile view */
     background-position: center;
     width: 100%; /* Ensure home section takes full width */
+    max-width: 100%;
 }
 
 /* Title text */
@@ -184,7 +185,7 @@ body {
     text-align: center; /* Text alignment inside the div */
     height: 50vh; /* Full viewport height for proper centering */
     background: #F6CA5A; /* Background color */
-    margin: 0;
+    /* margin: 0; */
     padding: 10px; /* Add padding for smaller screens */
 }
 
@@ -245,6 +246,7 @@ body {
 /* For mobile phones (screen width below 768px) */
 @media (max-width: 576px) {
     .overview {
+        width: 100%;
         height: 40vh; /* Reduce height for smaller screens */
     }
     .overview .heading h1 {
